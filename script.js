@@ -13,7 +13,7 @@ const wikiItems = {
 
     "chestplate-of-rose-thorns": {
         name: "Chestplate of Rose Thorns",
-        icon: "textures/RoseChestplateTexture.png",
+        icon: "textures/rosechestplatetexture.png",
         type: "Armor",
         rarity: "Unknown",
         category: "Chestplate",
