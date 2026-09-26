@@ -2,7 +2,7 @@
    SERVER SETTINGS
 ========================================= */
 
-const serverIP = "totemofnull.aternos.me";
+const serverIP = "totemofnull2.aternos.me";
 
 
 /* =========================================
@@ -189,18 +189,101 @@ function setupSearch() {
 
     if (!searchInput) return;
 
+    /* Build the results dropdown once */
+
+    const resultsBox = document.createElement("div");
+    resultsBox.className = "search-results";
+    searchInput.parentElement.appendChild(resultsBox);
+
+    function getMatches(query) {
+
+        const q = query.toLowerCase();
+
+        const itemMatches = Object.entries(wikiItems)
+            .filter(([id, item]) =>
+                item.name.toLowerCase().includes(q) ||
+                item.shortDescription.toLowerCase().includes(q)
+            )
+            .map(([id, item]) => ({
+                type: "Item",
+                name: item.name,
+                icon: item.icon,
+                href: `itemtemplate.html?item=${encodeURIComponent(id)}`
+            }));
+
+        const entityMatches = entities
+            .filter(entity =>
+                entity.name.toLowerCase().includes(q) ||
+                (entity.description || "").toLowerCase().includes(q)
+            )
+            .map(entity => ({
+                type: "Entity",
+                name: entity.name,
+                icon: entity.icon,
+                href: "index.html#entities"
+            }));
+
+        return [...itemMatches, ...entityMatches];
+    }
+
+    function renderResults(query) {
+
+        resultsBox.innerHTML = "";
+
+        if (!query) {
+            resultsBox.classList.remove("active");
+            return;
+        }
+
+        const matches = getMatches(query);
+
+        if (matches.length === 0) {
+            resultsBox.innerHTML =
+                `<div class="search-empty">No results for "${query}"</div>`;
+            resultsBox.classList.add("active");
+            return;
+        }
+
+        matches.slice(0, 8).forEach(result => {
+
+            const link = document.createElement("a");
+            link.className = "search-result";
+            link.href = result.href;
+
+            const iconHTML =
+                result.icon && result.icon.includes(".")
+                    ? `<img src="${result.icon}" alt="${result.name}">`
+                    : `<span>${result.icon || "?"}</span>`;
+
+            link.innerHTML = `
+                <div class="search-result-icon">${iconHTML}</div>
+                <div class="search-result-info">
+                    <strong>${result.name}</strong>
+                    <span>${result.type}</span>
+                </div>
+            `;
+
+            resultsBox.appendChild(link);
+        });
+
+        resultsBox.classList.add("active");
+    }
+
+    /* Live dropdown + inline card filtering on the homepage grids */
+
     searchInput.addEventListener("input", () => {
 
-        const search =
-            searchInput.value.toLowerCase().trim();
+        const query = searchInput.value.trim();
 
-        const cards =
-            document.querySelectorAll(".entry-card");
+        renderResults(query);
+
+        const search = query.toLowerCase();
+
+        const cards = document.querySelectorAll(".entry-card");
 
         cards.forEach(card => {
 
-            const text =
-                card.textContent.toLowerCase();
+            const text = card.textContent.toLowerCase();
 
             card.classList.toggle(
                 "hidden",
@@ -208,6 +291,18 @@ function setupSearch() {
             );
 
         });
+    });
+
+    searchInput.addEventListener("focus", () => {
+        if (searchInput.value.trim()) {
+            resultsBox.classList.add("active");
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!searchInput.parentElement.contains(event.target)) {
+            resultsBox.classList.remove("active");
+        }
     });
 }
 
