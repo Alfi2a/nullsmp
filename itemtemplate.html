@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Item | Server Wiki</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⛏</span>
+            Server Wiki
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#items">Items</a>
+            <a href="index.html#entities">Entities</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="item-page">
+
+    <a href="index.html#items" class="back-button">
+        ← Back to Items
+    </a>
+
+
+    <section class="item-header">
+
+        <div class="item-large-icon">
+            <img id="itemTexture" src="" alt="">
+        </div>
+
+        <div class="item-title">
+
+            <span class="section-label" id="itemType">
+                ITEM
+            </span>
+
+            <h1 id="itemName">
+                Loading...
+            </h1>
+
+            <p id="itemShortDescription">
+                Loading item information...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <div class="item-layout">
+
+        <div class="item-main">
+
+            <section class="wiki-box">
+
+                <span class="section-label">
+                    DESCRIPTION
+                </span>
+
+                <h2>About this item</h2>
+
+                <p id="itemDescription">
+                    Loading...
+                </p>
+
+            </section>
+
+
+            <section class="wiki-box">
+
+                <span class="section-label">
+                    USES
+                </span>
+
+                <h2>Uses</h2>
+
+                <ul id="itemUses"></ul>
+
+            </section>
+
+
+            <section class="wiki-box">
+
+                <span class="section-label">
+                    RECIPE
+                </span>
+
+                <h2>Crafting Recipe</h2>
+
+                <div id="recipe" class="recipe-grid"></div>
+
+            </section>
+
+        </div>
+
+
+        <aside class="item-sidebar">
+
+            <div class="wiki-box">
+
+                <span class="section-label">
+                    INFORMATION
+                </span>
+
+                <div class="item-info">
+
+                    <div>
+                        <span>Rarity</span>
+                        <strong id="itemRarity">-</strong>
+                    </div>
+
+                    <div>
+                        <span>Type</span>
+                        <strong id="itemCategory">-</strong>
+                    </div>
+
+                    <div>
+                        <span>Owner</span>
+                        <strong id="itemOwner">-</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="wiki-box">
+
+                <span class="section-label">
+                    STATS
+                </span>
+
+                <div id="itemStats" class="item-info"></div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <p>© 2026 My Minecraft Server Wiki</p>
+    <p class="footer-muted">
+        Not affiliated with Mojang or Microsoft.
+    </p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

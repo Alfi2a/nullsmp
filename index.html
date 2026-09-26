@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⛏</span>
+            Totem Of Null Wiki
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#items">Items</a>
+            <a href="#entities">Entities</a>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search wiki...">
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge">MINECRAFT SERVER WIKI</div>
+            <h1>Welcome to<br><span>Totem of Null</span></h1>
+
+            <p class="hero-text">
+                Welcome to the official wiki for our Minecraft server.
+                Discover custom items, entities, mechanics and everything
+                else you need to know.
+            </p>
+
+            <div class="server-ip">
+                <div>
+                    <small>SERVER IP</small>
+                    <strong id="serverIp">play.example.com</strong>
+                </div>
+                <button id="copyIp">Copy IP</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="wiki-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-label">EXPLORE</span>
+                <h2>Wiki Categories</h2>
+            </div>
+            <p>Browse everything available on the server.</p>
+        </div>
+
+        <div class="category-grid">
+            <a href="#items" class="category-card">
+                <div class="card-icon item-icon"><img src="textures/itemslogo.png" alt="Items"></div>
+                <div class="card-content">
+                    <span class="card-label">CATEGORY</span>
+                    <h3>Items</h3>
+                    <p>Discover custom items, materials, weapons, armor and more.</p>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="#entities" class="category-card">
+                <div class="card-icon entity-icon"><img src="textures/entityslogo.png" alt="Entities"></div>
+                <div class="card-content">
+                    <span class="card-label">CATEGORY</span>
+                    <h3>Entities</h3>
+                    <p>Learn about mobs, bosses, NPCs and other server entities.</p>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="items" class="wiki-section content-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-label">WIKI</span>
+                <h2>Items</h2>
+            </div>
+        </div>
+        <div id="itemsGrid" class="entry-grid"></div>
+    </section>
+
+    <section id="entities" class="wiki-section content-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-label">WIKI</span>
+                <h2>Entities</h2>
+            </div>
+        </div>
+        <div id="entitiesGrid" class="entry-grid"></div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 My Minecraft Server Wiki</p>
+    <p class="footer-muted">Not affiliated with Mojang or Microsoft.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
