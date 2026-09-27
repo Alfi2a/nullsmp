@@ -2,7 +2,7 @@
    SERVER SETTINGS
 ========================================= */
 
-const serverIP = "162.55.100.208:58388";
+const serverIP = "totemofnull2.falix.me";
 
 
 /* =========================================
