@@ -2,7 +2,7 @@
    SERVER SETTINGS
 ========================================= */
 
-const serverIP = "totemofnull2.aternos.me";
+const serverIP = "162.55.100.208:58388";
 
 
 /* =========================================
